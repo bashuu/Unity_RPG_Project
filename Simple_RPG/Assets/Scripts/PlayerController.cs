@@ -13,13 +13,14 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        
         float verInput = Input.GetAxis("Vertical");
         float horInput = Input.GetAxis("Horizontal");
-        transform.Translate(focalPoint.transform.forward * Time.deltaTime * speed * verInput);
 
+        // moves toward camera direction 
+        transform.Translate(focalPoint.transform.forward * Time.deltaTime * speed * verInput);
         transform.Translate (focalPoint.transform.right * horInput * speed * Time.deltaTime);
 
     }
