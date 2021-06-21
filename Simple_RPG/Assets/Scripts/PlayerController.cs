@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
-    public float rotationSpeed = 50f;
+    public GameObject focalPoint;
+
     private Rigidbody playerRb;
     void Start()
     {
@@ -16,10 +17,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         float verInput = Input.GetAxis("Vertical");
-        float horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * verInput);
+        float horInput = Input.GetAxis("Horizontal");
+        transform.Translate(focalPoint.transform.forward * Time.deltaTime * speed * verInput);
 
-        transform.Rotate(Vector3.up, horizontalInput * rotationSpeed * Time.deltaTime);
+        transform.Translate (focalPoint.transform.right * horInput * speed * Time.deltaTime);
 
     }
 }
