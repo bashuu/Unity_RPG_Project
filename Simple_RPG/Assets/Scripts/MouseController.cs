@@ -15,15 +15,17 @@ public class MouseController : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        // hides curson and locks it
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-
+        //locks the camera on x axis 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
    
@@ -31,4 +33,7 @@ public class MouseController : MonoBehaviour
 
         transform.Rotate(Vector3.up * mouseX);
     }
+
+
+
 }
